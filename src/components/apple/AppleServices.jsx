@@ -24,11 +24,11 @@ export default function AppleServices() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-                className="group relative rounded-2xl border border-border bg-surface p-6 sm:p-7 transition-colors hover:border-apple-500/40"
+                className="group relative rounded-[1.75rem] border border-border titanium-surface p-6 transition-colors hover:border-apple-500/40 sm:p-7"
               >
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-apple-500/0 via-transparent to-apple-400/0 opacity-0 group-hover:opacity-100 group-hover:from-apple-500/5 group-hover:to-apple-400/5 transition-opacity" />
+                <div className="absolute inset-0 rounded-[1.75rem] bg-gradient-to-br from-apple-500/0 via-transparent to-apple-400/0 opacity-0 group-hover:opacity-100 group-hover:from-apple-500/5 group-hover:to-apple-400/5 transition-opacity" />
                 <div className="relative flex flex-col gap-4">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-surface-2 border border-border text-apple-400 group-hover:text-apple-300 group-hover:border-apple-500/40 transition-colors">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-surface-2 border border-border text-apple-400 group-hover:text-apple-300 group-hover:border-apple-500/40 transition-colors">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="font-display text-lg font-semibold text-ink">{service.title}</h3>

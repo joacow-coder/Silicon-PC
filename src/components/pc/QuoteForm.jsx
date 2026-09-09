@@ -18,7 +18,7 @@ const categories = [
 ];
 
 const inputClasses =
-  "w-full rounded-xl border border-border bg-surface-2 px-4 py-3 text-sm text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20";
+  "w-full rounded-xl border border-border bg-surface-2 px-4 py-3 text-base text-ink placeholder:text-ink-faint outline-none transition-colors focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20 sm:text-sm";
 
 export default function QuoteForm() {
   const [form, setForm] = useState({
@@ -46,7 +46,7 @@ export default function QuoteForm() {
 
   return (
     <section id="presupuesto" className="relative py-20 sm:py-28">
-      <GlowOrb color="blue" className="h-[24rem] w-[24rem] top-1/3 -right-32" />
+      <GlowOrb color="blue" className="h-56 w-56 top-1/3 -right-20 sm:h-[24rem] sm:w-[24rem] sm:-right-32" />
       <Container className="relative grid grid-cols-1 gap-14 lg:grid-cols-[0.9fr_1.1fr] items-start">
         <SectionHeading
           eyebrow="Presupuesto rápido"

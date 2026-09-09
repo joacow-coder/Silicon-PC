@@ -9,8 +9,8 @@ export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
       <div className="absolute inset-0 grid-fade" />
-      <GlowOrb color="brand" className="h-[26rem] w-[26rem] -top-32 -left-24" />
-      <GlowOrb color="cyan" className="h-[22rem] w-[22rem] top-10 -right-20" />
+      <GlowOrb color="cyan" className="h-64 w-64 -top-20 -right-16 sm:h-[24rem] sm:w-[24rem] sm:top-10 sm:-right-20" />
+      <GlowOrb color="brand" className="h-56 w-56 -top-16 -left-16 opacity-30 sm:h-[26rem] sm:w-[26rem] sm:-top-32 sm:-left-24" />
 
       <Container className="relative grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
@@ -83,45 +83,68 @@ export default function Hero() {
 function HeroDeviceArt() {
   return (
     <div className="relative aspect-square w-full">
+      <HudCorners />
       <div className="absolute inset-6 rounded-[2.5rem] glass shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] animate-float">
         <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
           <div className="absolute inset-0 opacity-[0.15] grid-fade" />
-          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-brand-400/60 to-transparent animate-scan" />
+          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-cyan-glow/70 to-transparent animate-scan" />
         </div>
 
-        <div className="relative h-full w-full flex flex-col items-center justify-center gap-5 p-8">
-          <svg viewBox="0 0 120 120" className="h-28 w-28 sm:h-32 sm:w-32">
+        <div className="relative h-full w-full flex flex-col items-center justify-center gap-4 p-6 sm:gap-5 sm:p-8">
+          <svg viewBox="0 0 120 120" className="h-24 w-24 sm:h-32 sm:w-32">
             <rect x="10" y="10" width="100" height="100" rx="24" fill="none" stroke="var(--color-border)" strokeWidth="2" />
             <path
               d="M78 32H46c-6 0-11 5-11 11s5 11 11 11h20c3.3 0 6 2.7 6 6s-2.7 6-6 6H36"
-              stroke="var(--color-brand-400)"
+              stroke="var(--color-cyan-glow)"
               strokeWidth="7"
               strokeLinecap="round"
               fill="none"
             />
             <path
               d="M42 88h32c6 0 11-5 11-11s-5-11-11-11H54c-3.3 0-6-2.7-6-6s2.7-6 6-6h30"
-              stroke="var(--color-cyan-glow)"
+              stroke="var(--color-brand-400)"
               strokeWidth="7"
               strokeLinecap="round"
               fill="none"
             />
           </svg>
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-glow/70 sm:text-xs">
+            Diagnóstico · OK
+          </span>
         </div>
       </div>
 
       <FloatingBadge
-        className="top-2 -left-2 sm:-left-6"
+        className="top-2 -left-1 sm:-left-6"
         icon={<ShieldCheck className="h-4 w-4 text-brand-400" />}
         label="Garantía escrita"
         delay={0}
       />
       <FloatingBadge
-        className="bottom-6 -right-2 sm:-right-6"
+        className="bottom-6 -right-1 sm:-right-6"
         icon={<Timer className="h-4 w-4 text-cyan-glow" />}
         label="Respuesta en el día"
         delay={0.3}
       />
+    </div>
+  );
+}
+
+function HudCorners() {
+  const corners = [
+    "top-0 left-0 border-t-2 border-l-2 rounded-tl-xl",
+    "top-0 right-0 border-t-2 border-r-2 rounded-tr-xl",
+    "bottom-0 left-0 border-b-2 border-l-2 rounded-bl-xl",
+    "bottom-0 right-0 border-b-2 border-r-2 rounded-br-xl",
+  ];
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      {corners.map((corner) => (
+        <span
+          key={corner}
+          className={`absolute h-5 w-5 border-cyan-glow/50 sm:h-7 sm:w-7 ${corner}`}
+        />
+      ))}
     </div>
   );
 }

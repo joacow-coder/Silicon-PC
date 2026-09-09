@@ -45,12 +45,12 @@ export default function AppleShowcase() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: (i % 3) * 0.07 }}
-                className="group relative flex flex-col justify-between gap-6 overflow-hidden rounded-2xl border border-border bg-surface p-6 min-h-[220px] hover:border-apple-500/40 transition-colors"
+                className="group relative flex min-h-[220px] flex-col justify-between gap-6 overflow-hidden rounded-[1.75rem] border border-border titanium-surface p-6 transition-colors hover:border-apple-500/40"
               >
                 <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-apple-500/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div className="relative flex items-start justify-between">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-surface-2 border border-border text-apple-400 group-hover:scale-110 group-hover:text-apple-300 transition-all">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-surface-2 border border-border text-apple-400 group-hover:scale-110 group-hover:text-apple-300 transition-all">
                     <Icon className="h-5 w-5" />
                   </div>
                   <Badge tone={availabilityTone[item.availability]}>{item.availability}</Badge>

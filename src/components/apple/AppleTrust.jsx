@@ -31,7 +31,7 @@ export default function AppleTrust() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-2xl border border-border bg-surface p-6 flex flex-col gap-3"
+                className="rounded-[1.75rem] border border-border titanium-surface p-6 flex flex-col gap-3"
               >
                 <Icon className="h-5 w-5 text-apple-400" />
                 <span className="font-display text-2xl sm:text-3xl font-semibold text-ink">
@@ -48,7 +48,7 @@ export default function AppleTrust() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5 }}
-          className="rounded-2xl border border-border bg-surface p-7 sm:p-8 flex flex-col gap-5 lg:max-w-2xl"
+          className="rounded-[1.75rem] border border-border titanium-surface p-7 sm:p-8 flex flex-col gap-5 lg:max-w-2xl"
         >
           <h3 className="font-display text-lg font-semibold text-ink inline-flex items-center gap-2.5">
             <ShieldCheck className="h-5 w-5 text-apple-400" />

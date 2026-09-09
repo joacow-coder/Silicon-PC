@@ -1,19 +1,17 @@
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, ShieldCheck, Timer, Apple } from "lucide-react";
+import { ArrowRight, MessageCircle, ShieldCheck, Timer } from "lucide-react";
 import Container from "../ui/Container";
 import GlowOrb from "../ui/GlowOrb";
 import Badge from "../ui/Badge";
+import AppleMark from "../ui/AppleMark";
 import { siteConfig } from "../../data/siteConfig";
 
 export default function AppleHero() {
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
       <div className="absolute inset-0 grid-fade" />
-      <GlowOrb color="blue" className="h-[26rem] w-[26rem] -top-32 -left-24" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute rounded-full blur-3xl opacity-30 animate-pulse-slow h-[22rem] w-[22rem] top-10 -right-20 bg-[radial-gradient(circle,var(--color-apple-500)_0%,transparent_70%)]"
-      />
+      <GlowOrb color="silver" className="h-64 w-64 -top-20 -left-16 sm:h-[26rem] sm:w-[26rem] sm:-top-32 sm:-left-24" />
+      <GlowOrb color="apple" className="h-56 w-56 top-6 -right-16 opacity-30 sm:h-[22rem] sm:w-[22rem] sm:top-10 sm:-right-20" />
 
       <Container className="relative grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
         <motion.div
@@ -23,7 +21,7 @@ export default function AppleHero() {
           className="flex flex-col items-start gap-6"
         >
           <Badge tone="apple">
-            <Apple className="h-3.5 w-3.5" />
+            <AppleMark className="h-3.5 w-3.5" />
             Especialistas Apple en {siteConfig.city}
           </Badge>
 
@@ -84,25 +82,28 @@ export default function AppleHero() {
 function AppleDeviceArt() {
   return (
     <div className="relative aspect-square w-full">
-      <div className="absolute inset-6 rounded-[2.5rem] glass shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] animate-float">
-        <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.15] grid-fade" />
-          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-apple-400/60 to-transparent animate-scan" />
+      <div className="absolute inset-6 rounded-[2.75rem] titanium-surface glass shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] animate-float">
+        <div className="absolute inset-0 rounded-[2.75rem] overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.12] grid-fade" />
+          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-apple-silver/40 to-transparent" />
         </div>
 
-        <div className="relative h-full w-full flex flex-col items-center justify-center gap-5 p-8">
-          <Apple className="h-24 w-24 sm:h-28 sm:w-28 text-apple-300" strokeWidth={1.2} />
+        <div className="relative h-full w-full flex flex-col items-center justify-center gap-4 p-6 sm:gap-5 sm:p-8">
+          <AppleMark className="h-20 w-20 text-apple-silver sm:h-24 sm:w-24" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-apple-300/70 sm:text-xs">
+            Ecosistema Apple
+          </span>
         </div>
       </div>
 
       <FloatingBadge
-        className="top-2 -left-2 sm:-left-6"
+        className="top-2 -left-1 sm:-left-6"
         icon={<ShieldCheck className="h-4 w-4 text-apple-400" />}
         label="Garantía escrita"
         delay={0}
       />
       <FloatingBadge
-        className="bottom-6 -right-2 sm:-right-6"
+        className="bottom-6 -right-1 sm:-right-6"
         icon={<Timer className="h-4 w-4 text-apple-300" />}
         label="Respuesta en el día"
         delay={0.3}
@@ -117,7 +118,7 @@ function FloatingBadge({ className, icon, label, delay }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.6 + delay }}
-      className={`absolute glass rounded-2xl px-4 py-3 flex items-center gap-2.5 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.7)] ${className}`}
+      className={`absolute glass rounded-full px-4 py-3 flex items-center gap-2.5 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.7)] ${className}`}
     >
       {icon}
       <span className="text-xs font-medium text-ink whitespace-nowrap">{label}</span>
