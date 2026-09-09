@@ -18,6 +18,13 @@
   --color-cyan-glow: #22d3ee;
   --color-blue-glow: #3b82f6;
 
+  --color-apple-50: #f5f5f7;
+  --color-apple-300: #a8c7ff;
+  --color-apple-400: #6aa9ff;
+  --color-apple-500: #0a84ff;
+  --color-apple-600: #0060d1;
+  --color-apple-silver: #d6d8dc;
+
   --color-ink: #f4f7fa;
   --color-ink-muted: #93a0b3;
   --color-ink-faint: #5c6879;
@@ -25,6 +32,12 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
   --animate-scan: scan 8s linear infinite;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes float {
@@ -73,8 +86,16 @@ body {
   background: var(--color-border);
 }
 
-.text-gradient {
+.text-gradient,
+.text-gradient-pc {
   background-image: linear-gradient(90deg, var(--color-brand-300), var(--color-cyan-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-apple {
+  background-image: linear-gradient(90deg, var(--color-apple-silver), var(--color-apple-400));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
