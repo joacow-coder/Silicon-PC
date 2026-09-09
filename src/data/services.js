@@ -2,10 +2,10 @@ import {
   ScanSearch,
   Smartphone,
   Laptop,
-  Apple,
   ShieldCheck,
   Cpu,
 } from "lucide-react";
+import AppleMark from "../components/ui/AppleMark";
 
 export const services = [
   {
@@ -23,7 +23,7 @@ export const services = [
     points: ["Módulos y baterías", "Reparación de placa"],
   },
   {
-    icon: Apple,
+    icon: AppleMark,
     title: "Silicon Apple",
     description:
       "Atención dedicada al ecosistema Apple: iPhone, iPad y Mac, con repuestos seleccionados y procedimientos específicos de marca.",

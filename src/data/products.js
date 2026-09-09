@@ -1,12 +1,12 @@
 import {
   Smartphone,
-  Apple,
   Cpu,
   Headphones,
   BatteryCharging,
   ShieldHalf,
   Tag,
 } from "lucide-react";
+import AppleMark from "../components/ui/AppleMark";
 
 export const productCategories = [
   {
@@ -16,7 +16,7 @@ export const productCategories = [
     availability: "En stock",
   },
   {
-    icon: Apple,
+    icon: AppleMark,
     title: "Silicon Apple",
     description: "iPhone, accesorios y repuestos originales / alternativos para el ecosistema Apple.",
     availability: "En stock",
