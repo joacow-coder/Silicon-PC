@@ -1,6 +1,7 @@
 const tones = {
   brand: "bg-brand-500/10 text-brand-300 border-brand-500/30",
   cyan: "bg-cyan-glow/10 text-cyan-glow border-cyan-glow/30",
+  apple: "bg-apple-500/10 text-apple-300 border-apple-500/30",
   neutral: "bg-white/5 text-ink-muted border-white/10",
 };
 

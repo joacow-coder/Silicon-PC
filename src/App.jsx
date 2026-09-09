@@ -1,25 +1,33 @@
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import WhatsAppFloat from "./components/layout/WhatsAppFloat";
-import Hero from "./components/sections/Hero";
-import Services from "./components/sections/Services";
-import Catalog from "./components/sections/Catalog";
-import QuoteForm from "./components/sections/QuoteForm";
-import Trust from "./components/sections/Trust";
+import { AnimatePresence } from "framer-motion";
+import { BrandProvider, useBrand } from "./context/BrandContext";
+import SplashScreen from "./components/intro/SplashScreen";
+import BrandSelector from "./components/intro/BrandSelector";
+import BrandTransition from "./components/intro/BrandTransition";
+import PCSite from "./components/pc/PCSite";
+import AppleSite from "./components/apple/AppleSite";
+import BrandSwitcher from "./components/layout/BrandSwitcher";
+
+function AppShell() {
+  const { phase, brand } = useBrand();
+
+  return (
+    <div className="relative min-h-screen bg-bg text-ink overflow-x-hidden">
+      <AnimatePresence mode="wait">
+        {phase === "splash" && <SplashScreen key="splash" />}
+        {phase === "select" && <BrandSelector key="select" />}
+        {phase === "transition" && <BrandTransition key="transition" />}
+        {phase === "site" && brand === "pc" && <PCSite key="site-pc" />}
+        {phase === "site" && brand === "apple" && <AppleSite key="site-apple" />}
+      </AnimatePresence>
+      {phase === "site" && <BrandSwitcher />}
+    </div>
+  );
+}
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-bg text-ink overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Catalog />
-        <QuoteForm />
-        <Trust />
-      </main>
-      <Footer />
-      <WhatsAppFloat />
-    </div>
+    <BrandProvider>
+      <AppShell />
+    </BrandProvider>
   );
 }
