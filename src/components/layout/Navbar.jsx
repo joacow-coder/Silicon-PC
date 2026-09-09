@@ -26,11 +26,12 @@ export default function Navbar({ brand = "pc" }) {
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled ? "glass shadow-[0_4px_30px_-10px_rgba(0,0,0,0.6)]" : "bg-transparent border-b border-transparent"
       }`}
+      style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      <Container className="flex h-16 sm:h-[4.5rem] items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5 shrink-0">
-          <Logo className="h-8 w-8 sm:h-9 sm:w-9" />
-          <span className="font-display font-semibold text-lg tracking-tight text-ink">
+      <Container className="flex h-16 items-center justify-between sm:h-[4.5rem]">
+        <a href="#top" className="flex min-w-0 shrink items-center gap-2.5">
+          <Logo className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
+          <span className="truncate font-display font-semibold text-base tracking-tight text-ink sm:text-lg">
             Silicon<span className={gradientClass}>{name.replace("Silicon", "")}</span>
           </span>
         </a>
@@ -61,22 +62,23 @@ export default function Navbar({ brand = "pc" }) {
 
         <button
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-ink"
-          aria-label="Abrir menú"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border text-ink active:scale-95 lg:hidden"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </Container>
 
       {open && (
-        <div className="lg:hidden glass border-t border-border">
+        <div className="glass max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-ink-muted hover:text-ink hover:bg-white/5"
+                className="flex min-h-[44px] items-center rounded-lg px-3 py-3 text-sm font-medium text-ink-muted hover:text-ink hover:bg-white/5"
               >
                 {link.label}
               </a>

@@ -14,7 +14,8 @@ export default function WhatsAppFloat({ brand = "pc" }) {
       target="_blank"
       rel="noreferrer"
       aria-label="Contactar por WhatsApp"
-      className={`fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full transition-transform hover:scale-105 active:scale-95 ${colorClasses}`}
+      className={`fixed right-4 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full transition-transform hover:scale-105 active:scale-95 sm:right-7 ${colorClasses}`}
+      style={{ bottom: "calc(1rem + env(safe-area-inset-bottom))" }}
     >
       <MessageCircle className="h-6 w-6" strokeWidth={2.25} />
       <span className={`absolute inset-0 rounded-full animate-ping -z-10 ${pingClass}`} />

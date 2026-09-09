@@ -79,7 +79,7 @@ export default function Footer({ brand = "pc" }) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"
-                className={`inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink-muted transition-colors ${iconHoverClass}`}
+                className={`inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-ink-muted transition-colors ${iconHoverClass}`}
               >
                 <MessageCircle className="h-[18px] w-[18px]" />
               </a>
@@ -88,7 +88,7 @@ export default function Footer({ brand = "pc" }) {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink-muted hover:text-cyan-glow hover:border-cyan-glow/40 transition-colors"
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-ink-muted hover:text-cyan-glow hover:border-cyan-glow/40 transition-colors"
               >
                 <InstagramIcon className="h-[18px] w-[18px]" />
               </a>
