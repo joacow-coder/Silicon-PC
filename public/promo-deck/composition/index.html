@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Silicon PC — Deck promocional</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #05070a;
+        color: #f4f7fa;
+        font-family: "Inter", system-ui, sans-serif;
+      }
+      .scene-frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        background: #05070a;
+      }
+      .scene-frame.grid-bg {
+        background-image: linear-gradient(to right, rgba(244, 247, 250, 0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(244, 247, 250, 0.05) 1px, transparent 1px);
+        background-size: 44px 44px;
+      }
+      .eyebrow {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: #93a0b3;
+      }
+      h1,
+      h2 {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+      .gradient-text {
+        background-image: linear-gradient(90deg, #7cf3ad, #22d3ee);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .glow {
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(90px);
+        pointer-events: none;
+      }
+
+      /* ---- Scene: problem ---- */
+      #scene-problem .bubble {
+        position: absolute;
+        background: #10151c;
+        border: 1px solid #1c2430;
+        border-radius: 20px;
+        padding: 18px 26px;
+        font-size: 26px;
+        color: #93a0b3;
+        box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.7);
+      }
+      #scene-problem .stat {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 34px;
+        font-weight: 700;
+        color: #ff6868;
+      }
+
+      /* ---- Scene: turn ---- */
+      #scene-turn .mark {
+        width: 220px;
+        height: 220px;
+        border-radius: 48px;
+        background: #0b0f14;
+        border: 1px solid #1c2430;
+        display: grid;
+        place-items: center;
+      }
+      #scene-turn svg {
+        width: 110px;
+        height: 110px;
+      }
+
+      /* ---- Scene: solution / features (screenshot frame) ---- */
+      .browser-frame {
+        border-radius: 20px;
+        border: 1px solid #1c2430;
+        background: #0b0f14;
+        box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.85);
+        overflow: hidden;
+      }
+      .browser-frame .chrome {
+        height: 34px;
+        background: #10151c;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 16px;
+      }
+      .browser-frame .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #1c2430;
+      }
+      .browser-frame img {
+        display: block;
+        width: 100%;
+      }
+
+      /* ---- Scene: comparison table ---- */
+      #scene-comparison table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      #scene-comparison th,
+      #scene-comparison td {
+        text-align: left;
+        padding: 22px 28px;
+        font-size: 27px;
+        border-bottom: 1px solid #1c2430;
+      }
+      #scene-comparison th {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 22px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #93a0b3;
+      }
+      #scene-comparison td.social {
+        color: #93a0b3;
+      }
+      #scene-comparison td.own {
+        color: #7cf3ad;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Slideshow island: single source of truth for slide order + presenter notes -->
+    <script type="application/hyperframes-slideshow+json">
+      {
+        "slides": [
+          {
+            "sceneId": "problem",
+            "notes": "Abrir con el dolor, no con la marca. Dejar que se sienta el ruido de notificaciones antes de hablar."
+          },
+          {
+            "sceneId": "turn",
+            "notes": "Silencio de un fotograma antes del reveal del logo. Es el quiebre tonal del video."
+          },
+          {
+            "sceneId": "solution",
+            "notes": "Mostrar la landing real (captura en vivo del sitio desplegado). Disponible 24/7, incluso con el local cerrado."
+          },
+          {
+            "sceneId": "features",
+            "notes": "Catálogo, taller técnico, +15 años, mobile-first. Todo texto sale del sitio real, nada inventado."
+          },
+          {
+            "sceneId": "comparison",
+            "notes": "La comparativa es el argumento de cierre para el cliente empresarial: autoridad, disponibilidad, control del mensaje."
+          },
+          {
+            "sceneId": "cta",
+            "notes": "Cierre con el logo y la URL real del sitio desplegado."
+          }
+        ],
+        "slideSequences": []
+      }
+    </script>
+
+    <!--
+      Ancla técnica del reloj maestro del deck — no es una diapositiva.
+      No aparece en la isla del slideshow ni tiene contenido visible; existe
+      solo para que el timeline "root" (que impulsa el controlador de
+      visibilidad entre escenas) tenga un data-composition-id que lo respalde.
+    -->
+    <div
+      data-composition-id="root"
+      data-start="0"
+      data-duration="52"
+      data-width="1920"
+      data-height="1080"
+      style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none"
+    ></div>
+
+    <!-- Slide 1 — El problema (0–12s) -->
+    <div
+      id="scene-problem"
+      class="scene-frame clip grid-bg"
+      data-composition-id="problem"
+      data-start="0"
+      data-duration="12"
+      data-label="El problema"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="glow" style="width:700px;height:700px;background:#ff6868;opacity:.12;top:-200px;right:-200px;"></div>
+      <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 160px;gap:40px;">
+        <span class="eyebrow" data-anim>Tu feed no es tu vidriera</span>
+        <h1 data-anim style="font-size:74px;max-width:1400px;line-height:1.15;">
+          47 mensajes de WhatsApp sin responder.<br />
+          Un feed de Instagram que <span class="gradient-text" style="background-image:linear-gradient(90deg,#ff9a9a,#ff6868)">no controlás.</span>
+        </h1>
+        <div style="position:relative;height:220px;" data-anim>
+          <div class="bubble" style="top:0;left:0;">¿Siguen abiertos hoy?</div>
+          <div class="bubble" style="top:70px;left:520px;">¿Tienen la pantalla del iPhone 12?</div>
+          <div class="bubble" style="top:150px;left:120px;">Precio del cargador tipo C?</div>
+          <div class="bubble stat" style="top:10px;right:0;">+47 sin leer</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 — El quiebre (12–18s) -->
+    <div
+      id="scene-turn"
+      class="scene-frame clip"
+      data-composition-id="turn"
+      data-start="12"
+      data-duration="6"
+      data-label="El quiebre"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="glow" style="width:900px;height:900px;background:#2fd977;opacity:.18;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+      <div style="position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;">
+        <div class="mark" data-anim>
+          <svg viewBox="0 0 64 64" fill="none">
+            <path d="M40 16H24c-4 0-7 3-7 7s3 7 7 7h13c2 0 4 2 4 4s-2 4-4 4H19" stroke="#22d3ee" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M22 46h18c4 0 7-3 7-7s-3-7-7-7H27c-2 0-4-2-4-4s2-4 4-4h17" stroke="#4de88a" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h1 data-anim style="font-size:56px;text-align:center;max-width:1300px;">
+          Silicon<span class="gradient-text">PC</span> ya no depende de un algoritmo para que lo encuentren.
+        </h1>
+      </div>
+    </div>
+
+    <!-- Slide 3 — La solución (18–26s) -->
+    <div
+      id="scene-solution"
+      class="scene-frame clip grid-bg"
+      data-composition-id="solution"
+      data-start="18"
+      data-duration="8"
+      data-label="La solución"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="glow" style="width:700px;height:700px;background:#22d3ee;opacity:.12;bottom:-250px;left:-200px;"></div>
+      <div style="position:relative;height:100%;display:flex;align-items:center;gap:80px;padding:0 140px;">
+        <div style="flex:1;" data-anim>
+          <span class="eyebrow">Plataforma propia</span>
+          <h1 style="font-size:58px;margin-top:22px;line-height:1.2;">
+            Rápida, segura y disponible <span class="gradient-text">las 24 horas</span> — incluso con el local cerrado.
+          </h1>
+        </div>
+        <div class="browser-frame" style="width:820px;" data-anim>
+          <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <img src="assets/hero.png" alt="Landing real de Silicon PC" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4 — Características (26–38s) -->
+    <div
+      id="scene-features"
+      class="scene-frame clip grid-bg"
+      data-composition-id="features"
+      data-start="26"
+      data-duration="12"
+      data-label="Características clave"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div style="position:relative;height:100%;padding:70px 140px;display:flex;flex-direction:column;gap:36px;">
+        <span class="eyebrow" data-anim>Todo, extraído del sitio real</span>
+        <div style="display:flex;gap:56px;align-items:flex-start;flex:1;">
+          <div style="flex:1;display:flex;flex-direction:column;gap:28px;" data-anim>
+            <h1 style="font-size:46px;line-height:1.25;">
+              Catálogo completo, taller técnico profesional y presupuestos automáticos por WhatsApp.
+            </h1>
+            <div style="display:flex;flex-direction:column;gap:16px;font-size:28px;color:#93a0b3;">
+              <span>✓ &nbsp;<strong style="color:#f4f7fa">+15 años</strong> de trayectoria en Lobos</span>
+              <span>✓ &nbsp;<strong style="color:#f4f7fa">+4.000 personas</strong> en la comunidad</span>
+              <span>✓ &nbsp;<strong style="color:#f4f7fa">Mismo día</strong> de respuesta en diagnóstico</span>
+              <span>✓ &nbsp;Diseño <strong style="color:#f4f7fa">mobile-first</strong>, premium en cualquier pantalla</span>
+            </div>
+          </div>
+          <div style="flex:1.1;display:flex;flex-direction:column;gap:24px;" data-anim>
+            <div class="browser-frame">
+              <div class="chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <img src="assets/services.png" alt="Servicios de Silicon PC" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5 — Comparativa (38–48s) -->
+    <div
+      id="scene-comparison"
+      class="scene-frame clip grid-bg"
+      data-composition-id="comparison"
+      data-start="38"
+      data-duration="10"
+      data-label="Comparativa"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div style="position:relative;height:100%;padding:70px 140px;display:flex;flex-direction:column;gap:32px;">
+        <div data-anim>
+          <span class="eyebrow">Redes sociales vs. plataforma propia</span>
+          <h1 style="font-size:46px;margin-top:14px;">Una red social te presta el espacio. Tu web <span class="gradient-text">te pertenece.</span></h1>
+        </div>
+        <div class="browser-frame" data-anim style="padding:0 8px;">
+          <table>
+            <tr>
+              <th></th>
+              <th>Redes sociales</th>
+              <th>Plataforma propia</th>
+            </tr>
+            <tr>
+              <td>Disponibilidad</td>
+              <td class="social">Depende del algoritmo</td>
+              <td class="own">24/7, siempre visible</td>
+            </tr>
+            <tr>
+              <td>Primera impresión</td>
+              <td class="social">Feed genérico, compartido</td>
+              <td class="own">Diseño exclusivo de marca</td>
+            </tr>
+            <tr>
+              <td>Autoridad ante cliente empresarial</td>
+              <td class="social">Percepción informal</td>
+              <td class="own">Percepción profesional</td>
+            </tr>
+            <tr>
+              <td>Velocidad de respuesta</td>
+              <td class="social">Manual, uno por uno</td>
+              <td class="own">Presupuesto automático</td>
+            </tr>
+            <tr>
+              <td>Confianza a primera vista</td>
+              <td class="social">Variable</td>
+              <td class="own">Alta, inmediata</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6 — Cierre (48–52s) -->
+    <div
+      id="scene-cta"
+      class="scene-frame clip"
+      data-composition-id="cta"
+      data-start="48"
+      data-duration="4"
+      data-label="Cierre"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="glow" style="width:800px;height:800px;background:#2fd977;opacity:.16;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+      <div style="position:relative;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;">
+        <h1 data-anim style="font-size:60px;">
+          Silicon<span class="gradient-text">PC</span>
+        </h1>
+        <p data-anim style="font-size:30px;color:#93a0b3;margin:0;">Tecnología que funciona, presencia que impone.</p>
+        <div data-anim style="height:1px;width:280px;background:linear-gradient(90deg,transparent,#4de88a,transparent);"></div>
+        <p data-anim style="font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.05em;color:#22d3ee;margin:0;">
+          silicon-pc.jl-digitalhub.workers.dev
+        </p>
+      </div>
+    </div>
+
+    <!-- Root seekable timeline — total composition length -->
+    <script>
+      (function () {
+        var tl = gsap.timeline({ paused: true });
+        tl.to({}, { duration: 52 });
+        window.__timelines["root"] = tl;
+      })();
+    </script>
+
+    <!-- Visibility controller + entrance animations -->
+    <script>
+      (function () {
+        var scenes = [
+          { id: "scene-problem", start: 0, end: 12 },
+          { id: "scene-turn", start: 12, end: 18 },
+          { id: "scene-solution", start: 18, end: 26 },
+          { id: "scene-features", start: 26, end: 38 },
+          { id: "scene-comparison", start: 38, end: 48 },
+          { id: "scene-cta", start: 48, end: 52 },
+        ];
+
+        var lastActiveId = null;
+
+        function fireEntrance(sceneEl) {
+          var animEls = sceneEl.querySelectorAll("[data-anim]");
+          if (!animEls.length) return;
+          gsap.from(animEls, {
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+            stagger: 0.04,
+            ease: "power2.out",
+            overwrite: true,
+          });
+        }
+
+        function updateVisibility(t) {
+          for (var i = 0; i < scenes.length; i++) {
+            var s = scenes[i];
+            var el = document.getElementById(s.id);
+            if (!el) continue;
+            var active = t >= s.start && t < s.end;
+            el.style.opacity = active ? "1" : "0";
+            el.style.visibility = active ? "visible" : "hidden";
+            el.style.pointerEvents = active ? "auto" : "none";
+
+            if (active && lastActiveId !== s.id) {
+              lastActiveId = s.id;
+              fireEntrance(el);
+            }
+          }
+        }
+
+        window.__hfSetTime = updateVisibility;
+        updateVisibility(0);
+
+        var root = window.__timelines && window.__timelines["root"];
+        if (root) {
+          root.eventCallback("onUpdate", function () {
+            updateVisibility(root.time());
+          });
+        }
+      })();
+    </script>
+
+    <!-- Scene bootstrap for the slideshow chrome (maps sceneId -> timeline position) -->
+    <script>
+      (function () {
+        var FPS = 30;
+        var totalSeconds = 52;
+        var totalFrames = totalSeconds * FPS;
+
+        var scenes = [
+          { id: "problem", start: 0, duration: 12 },
+          { id: "turn", start: 12, duration: 6 },
+          { id: "solution", start: 18, duration: 8 },
+          { id: "features", start: 26, duration: 12 },
+          { id: "comparison", start: 38, duration: 10 },
+          { id: "cta", start: 48, duration: 4 },
+        ];
+
+        function postTimeline() {
+          parent.postMessage(
+            {
+              source: "hf-preview",
+              type: "timeline",
+              durationInFrames: totalFrames,
+              scenes: scenes,
+            },
+            "*"
+          );
+        }
+
+        if (document.readyState === "complete") {
+          setTimeout(postTimeline, 300);
+        } else {
+          window.addEventListener("load", function () {
+            setTimeout(postTimeline, 300);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
