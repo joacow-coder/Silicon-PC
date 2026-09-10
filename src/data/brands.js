@@ -6,7 +6,6 @@ export const brands = {
     tagline: "Electrónica, armado de PCs y service técnico integral",
     welcomeLine: "Componentes, hardware y service técnico",
     accentSoft: "brand-500",
-    switchLabel: "Cambiar a Silicon Apple",
     navLinks: [
       { label: "Servicios", href: "#servicios" },
       { label: "Catálogo", href: "#catalogo" },
@@ -22,7 +21,6 @@ export const brands = {
     tagline: "Especialistas en iPhone y ecosistema Apple",
     welcomeLine: "Service premium para iPhone y Apple",
     accentSoft: "apple-500",
-    switchLabel: "Cambiar a Silicon PC",
     navLinks: [
       { label: "Servicios", href: "#servicios" },
       { label: "Reparaciones", href: "#catalogo" },

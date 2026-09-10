@@ -11,7 +11,7 @@ import {
 
 const categories = [
   "Reparación de celular",
-  "Silicon Apple",
+  "Armado de PC",
   "Notebook / PC",
   "Compra de producto",
   "Otra consulta",

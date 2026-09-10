@@ -4,8 +4,8 @@ import {
   Laptop,
   ShieldCheck,
   Cpu,
+  Wrench,
 } from "lucide-react";
-import AppleMark from "../components/ui/AppleMark";
 
 export const services = [
   {
@@ -23,11 +23,11 @@ export const services = [
     points: ["Módulos y baterías", "Reparación de placa"],
   },
   {
-    icon: AppleMark,
-    title: "Silicon Apple",
+    icon: Wrench,
+    title: "Armado de PCs a medida",
     description:
-      "Atención dedicada al ecosistema Apple: iPhone, iPad y Mac, con repuestos seleccionados y procedimientos específicos de marca.",
-    points: ["iPhone / iPad / Mac", "Repuestos seleccionados"],
+      "Asesoramiento y armado de equipos según presupuesto y uso: gaming, oficina o diseño, con componentes seleccionados y garantía.",
+    points: ["Asesoramiento personalizado", "Componentes con garantía"],
   },
   {
     icon: Laptop,

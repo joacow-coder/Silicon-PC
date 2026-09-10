@@ -5,8 +5,8 @@ import {
   BatteryCharging,
   ShieldHalf,
   Tag,
+  MonitorSmartphone,
 } from "lucide-react";
-import AppleMark from "../components/ui/AppleMark";
 
 export const productCategories = [
   {
@@ -16,9 +16,9 @@ export const productCategories = [
     availability: "En stock",
   },
   {
-    icon: AppleMark,
-    title: "Silicon Apple",
-    description: "iPhone, accesorios y repuestos originales / alternativos para el ecosistema Apple.",
+    icon: MonitorSmartphone,
+    title: "Notebooks y monitores",
+    description: "Notebooks nuevas y usadas, monitores y periféricos con revisión técnica previa a la venta.",
     availability: "En stock",
   },
   {

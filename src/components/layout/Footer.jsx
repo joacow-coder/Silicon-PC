@@ -1,5 +1,6 @@
 import { MessageCircle, MapPin, Clock3 } from "lucide-react";
 import Logo from "../ui/Logo";
+import AppleMark from "../ui/AppleMark";
 import InstagramIcon from "../ui/InstagramIcon";
 import Container from "../ui/Container";
 import { siteConfig } from "../../data/siteConfig";
@@ -19,7 +20,7 @@ const pcLinkGroups = [
     title: "Servicio técnico",
     links: [
       { label: "Reparación de celulares", href: "#servicios" },
-      { label: "Silicon Apple", href: "#servicios" },
+      { label: "Armado de PCs", href: "#servicios" },
       { label: "Notebooks y PC", href: "#servicios" },
       { label: "Diagnóstico sin cargo", href: "#servicios" },
     ],
@@ -61,7 +62,13 @@ export default function Footer({ brand = "pc" }) {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
             <div className="flex items-center gap-2.5">
-              <Logo className="h-9 w-9" />
+              {isApple ? (
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-apple-500/30 bg-surface-2">
+                  <AppleMark className="h-[18px] w-[18px] text-apple-200" />
+                </span>
+              ) : (
+                <Logo className="h-9 w-9" />
+              )}
               <span className="font-display font-semibold text-lg text-ink">
                 Silicon<span className={gradientClass}>{name.replace("Silicon", "")}</span>
               </span>

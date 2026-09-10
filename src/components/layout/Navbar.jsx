@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, MessageCircle } from "lucide-react";
 import Logo from "../ui/Logo";
+import AppleMark from "../ui/AppleMark";
 import Container from "../ui/Container";
 import { siteConfig } from "../../data/siteConfig";
 import { brands } from "../../data/brands";
@@ -30,7 +31,13 @@ export default function Navbar({ brand = "pc" }) {
     >
       <Container className="flex h-16 items-center justify-between sm:h-[4.5rem]">
         <a href="#top" className="flex min-w-0 shrink items-center gap-2.5">
-          <Logo className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
+          {isApple ? (
+            <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-apple-500/30 bg-surface-2 sm:h-9 sm:w-9">
+              <AppleMark className="h-4 w-4 text-apple-200 sm:h-[18px] sm:w-[18px]" />
+            </span>
+          ) : (
+            <Logo className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
+          )}
           <span className="truncate font-display font-semibold text-base tracking-tight text-ink sm:text-lg">
             Silicon<span className={gradientClass}>{name.replace("Silicon", "")}</span>
           </span>
