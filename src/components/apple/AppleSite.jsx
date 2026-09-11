@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../layout/Navbar";
 import Footer from "../layout/Footer";
@@ -8,16 +7,8 @@ import AppleServices from "./AppleServices";
 import AppleShowcase from "./AppleShowcase";
 import AppleQuoteForm from "./AppleQuoteForm";
 import AppleTrust from "./AppleTrust";
-import { useVoice } from "../../context/VoiceContext";
 
 export default function AppleSite() {
-  const { speak } = useVoice();
-
-  useEffect(() => {
-    speak("Bienvenido a Silicon Apple.");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <motion.div
       initial={{ opacity: 0 }}

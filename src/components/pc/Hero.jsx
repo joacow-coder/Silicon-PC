@@ -4,6 +4,7 @@ import Container from "../ui/Container";
 import GlowOrb from "../ui/GlowOrb";
 import Badge from "../ui/Badge";
 import { siteConfig } from "../../data/siteConfig";
+import heroImg from "../../assets/silicon-pc-hero.webp";
 
 export default function Hero() {
   return (
@@ -84,33 +85,17 @@ function HeroDeviceArt() {
   return (
     <div className="relative aspect-square w-full">
       <HudCorners />
-      <div className="absolute inset-6 rounded-[2.5rem] glass shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] animate-float">
-        <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.15] grid-fade" />
-          <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-cyan-glow/70 to-transparent animate-scan" />
-        </div>
+      <div className="absolute inset-6 rounded-[2.5rem] glass shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)] animate-float overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.15] grid-fade" />
+        <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-cyan-glow/70 to-transparent animate-scan" />
 
-        <div className="relative h-full w-full flex flex-col items-center justify-center gap-4 p-6 sm:gap-5 sm:p-8">
-          <svg viewBox="0 0 120 120" className="h-24 w-24 sm:h-32 sm:w-32">
-            <rect x="10" y="10" width="100" height="100" rx="24" fill="none" stroke="var(--color-border)" strokeWidth="2" />
-            <path
-              d="M78 32H46c-6 0-11 5-11 11s5 11 11 11h20c3.3 0 6 2.7 6 6s-2.7 6-6 6H36"
-              stroke="var(--color-cyan-glow)"
-              strokeWidth="7"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <path
-              d="M42 88h32c6 0 11-5 11-11s-5-11-11-11H54c-3.3 0-6-2.7-6-6s2.7-6 6-6h30"
-              stroke="var(--color-brand-400)"
-              strokeWidth="7"
-              strokeLinecap="round"
-              fill="none"
-            />
-          </svg>
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-glow/70 sm:text-xs">
-            Diagnóstico · OK
-          </span>
+        <div className="relative h-full w-full flex items-center justify-center p-6 sm:p-8">
+          <img
+            src={heroImg}
+            alt="Silicon PC"
+            draggable={false}
+            className="h-full w-full select-none rounded-[1.5rem] object-cover shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)]"
+          />
         </div>
       </div>
 
